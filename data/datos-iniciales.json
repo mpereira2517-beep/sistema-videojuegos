@@ -1,0 +1,104 @@
+{
+  "videojuegos": [
+    {
+      "id": 1,
+      "nombre": "Dead Space",
+      "genero": "Survival Horror",
+      "plataforma": "PC",
+      "anio": 2008,
+      "estado": "Completado",
+      "caratula": "img/caratulas/dead-space.jpg",
+      "fechaAlta": "2026-11-20"
+    },
+    {
+      "id": 2,
+      "nombre": "Dead Space 2",
+      "genero": "Survival Horror",
+      "plataforma": "PC",
+      "anio": 2011,
+      "estado": "Jugando",
+      "caratula": "img/caratulas/dead-space-2.jpg",
+      "fechaAlta": "2026-11-21"
+    },
+    {
+      "id": 3,
+      "nombre": "Red Dead Redemption",
+      "genero": "Acción y Aventura",
+      "plataforma": "PlayStation",
+      "anio": 2010,
+      "estado": "Completado",
+      "caratula": "img/caratulas/red-dead-redemption.jpg",
+      "fechaAlta": "2026-11-22"
+    },
+    {
+      "id": 4,
+      "nombre": "Metal Gear Solid 3: Snake Eater",
+      "genero": "Sigilo y Acción",
+      "plataforma": "PlayStation",
+      "anio": 2004,
+      "estado": "Pendiente",
+      "caratula": "img/caratulas/mgs3.jpg",
+      "fechaAlta": "2026-11-23"
+    },
+    {
+      "id": 5,
+      "nombre": "Roblox",
+      "genero": "Sandbox",
+      "plataforma": "PC",
+      "anio": 2006,
+      "estado": "Jugando",
+      "caratula": "img/caratulas/roblox.jpg",
+      "fechaAlta": "2026-11-24"
+    },
+    {
+      "id": 6,
+      "nombre": "Minecraft",
+      "genero": "Sandbox",
+      "plataforma": "Multiplataforma",
+      "anio": 2011,
+      "estado": "Jugando",
+      "caratula": "img/caratulas/minecraft.jpg",
+      "fechaAlta": "2026-11-25"
+    },
+    {
+      "id": 7,
+      "nombre": "Elden Ring",
+      "genero": "RPG de acción",
+      "plataforma": "PC",
+      "anio": 2022,
+      "estado": "Completado",
+      "caratula": "img/caratulas/elden-ring.jpg",
+      "fechaAlta": "2026-11-26"
+    },
+    {
+      "id": 8,
+      "nombre": "Resident Evil 4",
+      "genero": "Survival Horror",
+      "plataforma": "PC",
+      "anio": 2023,
+      "estado": "Pendiente",
+      "caratula": "img/caratulas/re4.jpg",
+      "fechaAlta": "2026-11-26"
+    },
+    {
+      "id": 9,
+      "nombre": "Subnautica",
+      "genero": "Supervivencia",
+      "plataforma": "PC",
+      "anio": 2018,
+      "estado": "Pendiente",
+      "caratula": "img/caratulas/subnautica.jpg",
+      "fechaAlta": "2026-11-27"
+    },
+    {
+      "id": 10,
+      "nombre": "Persona 5 Royal",
+      "genero": "JRPG",
+      "plataforma": "Nintendo Switch",
+      "anio": 2019,
+      "estado": "Jugando",
+      "caratula": "img/caratulas/persona-5.jpg",
+      "fechaAlta": "2026-11-27"
+    }
+  ]
+}
