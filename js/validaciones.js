@@ -19,3 +19,37 @@ function validarAnio(anio) {
   }
   return null;
 }
+function validarCamposObligatorios(datos) {
+  if (!datos || typeof datos !== "object") {
+    return "Los datos del videojuego son obligatorios.";
+  }
+  if (!datos.nombre || String(datos.nombre).trim() === "") {
+    return "Completá el nombre del videojuego.";
+  }
+  if (!datos.plataforma || String(datos.plataforma).trim() === "") {
+    return "Seleccioná o completá la plataforma.";
+  }
+  if (!datos.genero || String(datos.genero).trim() === "") {
+    return "Seleccioná o completá el género.";
+  }
+  if (datos.anio === "" || datos.anio === null || datos.anio === undefined) {
+    return "Completá el año de lanzamiento.";
+  }
+  return null;
+}
+
+function validarVideojuego(datos) {
+  const errorObligatorio = validarCamposObligatorios(datos);
+  if (errorObligatorio) {
+    return errorObligatorio;
+  }
+  const errorNombre = validarNombre(datos.nombre);
+  if (errorNombre) {
+    return errorNombre;
+  }
+  const errorAnio = validarAnio(datos.anio);
+  if (errorAnio) {
+    return errorAnio;
+  }
+  return null;
+}
