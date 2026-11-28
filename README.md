@@ -4,10 +4,10 @@ Sistema web desarrollado para la gestión de una colección personal de videojue
 
 ## Integrantes del Equipo
 * **Mia Pereira** (Estructura base, repositorio y módulo de almacenamiento)
-* **Mateo Emilio** (Estructura HTML, estilos CSS y diseño responsive)
+* **Mateo Emilio** (Módulo de edición y eliminación de videojuegos)
 * **Benjamín Alejandro** (Validaciones de datos y formulario de registro)
 * **Gerónimo Nahuel** (Catálogo, buscador y filtros por género/plataforma)
-* **Gerónimo Pereira** (Módulo de edición y eliminación de videojuegos)
+* **Gerónimo Pereira** (Estructura HTML, estilos CSS y diseño responsive)
 * **Ciro Atuel** (Colección de carátulas predeterminadas y gestión de imágenes)
 
 ## Tecnologías Utilizadas
