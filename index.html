@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de gestión de videojuegos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- Encabezado: nombre provisorio, navegación y selector de rol -->
+  <header class="encabezado">
+    <h1 class="titulo">Sistema de gestión de videojuegos</h1>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+      <button type="button" class="nav-boton activo" data-pantalla="inicio">Inicio</button>
+      <button type="button" class="nav-boton" data-pantalla="prestamos">Préstamos</button>
+      <button type="button" class="nav-boton" data-pantalla="reportes">Reportes</button>
+      <button type="button" class="nav-boton" data-pantalla="usuarios">Usuarios</button>
+    </nav>
+
+    <div class="campo-rol">
+      <label for="selector-rol">Rol</label>
+      <select id="selector-rol">
+  <option value="lector">Lector</option>
+  <option value="administrador">Administrador</option>
+</select>
+    </div>
+  </header>
+
+  <!-- Zona de mensajes: la usan todos para avisar errores y éxitos -->
+  <div id="zona-mensajes" role="status" aria-live="polite"></div>
+
+  <main>
+
+    <!-- Pantalla: Inicio -->
+    <section id="pantalla-inicio" class="pantalla">
+            <div class="zona-busqueda">
+        <div class="campo">
+          <label for="buscador">Buscar videojuego</label>
+          <input type="search" id="buscador" placeholder="Escribí un nombre...">
+        </div>
+
+        <div class="campo">
+          <label for="filtro-genero">Género</label>
+          <select id="filtro-genero"><option value="">Todos</option></select>
+        </div>
+
+        <div class="campo">
+          <label for="filtro-plataforma">Plataforma</label>
+          <select id="filtro-plataforma"><option value="">Todas</option></select>
+        </div>
+
+        <div class="campo">
+          <label for="filtro-estado">Estado</label>
+          <select id="filtro-estado">
+            <option value="">Todos</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="jugando">Jugando</option>
+            <option value="terminado">Terminado</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" id="boton-agregar" class="boton boton-principal" data-solo-admin>+ Agregar videojuego</button>
+
+      <h2>Últimos agregados</h2>
+      <div id="contenedor-recientes" class="grilla-tarjetas"></div>
+
+      <h2>Catálogo completo</h2>
+      <div id="contenedor-catalogo" class="grilla-tarjetas"></div>
+    </section>
+
+    <!-- Pantalla: Préstamos -->
+    <section id="pantalla-prestamos" class="pantalla" hidden>
+      <h2>Préstamos y devoluciones</h2>
+      <div id="contenedor-prestamos"></div>
+    </section>
+
+    <!-- Pantalla: Reportes -->
+    <section id="pantalla-reportes" class="pantalla" hidden>
+      <h2>Reportes</h2>
+      <div id="contenedor-reportes"></div>
+    </section>
+
+    <!-- Pantalla: Usuarios -->
+    <section id="pantalla-usuarios" class="pantalla" hidden>
+      <h2>Usuarios</h2>
+      <div id="contenedor-usuarios"></div>
+    </section>
+
+  </main>
+
+  <!-- Ventana (modal) con el formulario de alta y edición -->
+  <dialog id="modal-videojuego" aria-labelledby="titulo-formulario">
+    <form id="formulario-videojuego" novalidate>
+      <h2 id="titulo-formulario">Videojuego</h2>
+
+      <label for="campo-nombre">Nombre</label>
+      <input type="text" id="campo-nombre" name="nombre" required>
+
+      <label for="campo-genero">Género</label>
+      <input type="text" id="campo-genero" name="genero" required>
+
+      <label for="campo-plataforma">Plataforma</label>
+      <input type="text" id="campo-plataforma" name="plataforma" required>
+
+      <label for="campo-anio">Año de lanzamiento</label>
+      <input type="number" id="campo-anio" name="anio" required>
+
+      <label for="campo-estado">Estado</label>
+      <select id="campo-estado" name="estado">
+        <option value="pendiente">Pendiente</option>
+        <option value="jugando">Jugando</option>
+        <option value="terminado">Terminado</option>
+      </select>
+
+      <label for="campo-caratula">Carátula</label>
+      <input type="file" id="campo-caratula" name="caratula" accept="image/*">
+      <img id="vista-previa-caratula" src="img/caratula-default.png" alt="Vista previa de la carátula">
+
+      <div class="botones-formulario">
+        <button type="button" id="boton-cancelar" class="boton">Cancelar</button>
+        <button type="submit" class="boton boton-principal">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Orden de los scripts (no cambiar sin avisar) -->
+  <script src="js/almacenamiento.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/usuarios.js"></script>
+  <script src="js/registro.js"></script>
+  <script src="js/prestamos.js"></script>
+  <script src="js/devoluciones.js"></script>
+  <script src="js/edicion.js"></script>
+  <script src="js/caratulas.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/reportes.js"></script>
+  <script src="js/interfaz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
