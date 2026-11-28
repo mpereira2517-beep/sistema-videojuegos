@@ -47,3 +47,39 @@ function agregarVideojuego(datos) {
 
   return { ok: true, juego: nuevoJuego };
 }
+function registrarDesdeFormulario(event) {
+  if (event && typeof event.preventDefault === "function") {
+    event.preventDefault();
+  }
+
+  const form = document.getElementById("formulario-videojuego");
+  if (!form) {
+    return { ok: false, error: "No se encontró el formulario." };
+  }
+
+  const datos = {
+    nombre: document.getElementById("campo-nombre")?.value ?? "",
+    genero: document.getElementById("campo-genero")?.value ?? "",
+    plataforma: document.getElementById("campo-plataforma")?.value ?? "",
+    anio: document.getElementById("campo-anio")?.value ?? ""
+  };
+
+  const resultado = agregarVideojuego(datos);
+
+  if (resultado.ok) {
+    form.reset();
+    const modal = document.getElementById("modal-videojuego");
+    if (modal && typeof modal.close === "function" && modal.open) {
+      modal.close();
+    }
+  }
+
+  return resultado;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("formulario-videojuego");
+  if (form) {
+    form.addEventListener("submit", registrarDesdeFormulario);
+  }
+});
