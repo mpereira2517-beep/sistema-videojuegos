@@ -1,0 +1,203 @@
+/* ===== Variables: acá se cambian colores, fuentes y espacios ===== */
+:root {
+  --color-fondo: #0d0d1a;
+  --color-superficie: #1a1a2e;
+  --color-superficie-2: #252542;
+  --color-texto: #f0f0ff;
+  --color-texto-suave: #b8b8d8;
+  --color-violeta: #8b5cf6;
+  --color-azul: #3b82f6;
+  --color-exito: #22c55e;
+  --color-error: #ef4444;
+  --color-aviso: #f59e0b;
+  --color-borde: #3a3a5c;
+
+  --fuente: "Segoe UI", Roboto, Arial, sans-serif;
+  --radio: 12px;
+  --espacio: 16px;
+  --ancho-tarjeta: 200px;
+}
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+main { padding: var(--espacio); max-width: 1200px; margin: 0 auto; }
+
+h2 { color: var(--color-violeta); margin-top: 32px; }
+
+/* El atributo hidden siempre oculta, aunque otra regla diga lo contrario */
+[hidden] { display: none !important; }
+
+/* ===== Encabezado y navegación ===== */
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio);
+  padding: var(--espacio);
+  background: var(--color-superficie);
+  border-bottom: 2px solid var(--color-violeta);
+}
+
+.titulo {
+  margin: 0;
+  font-size: 1.4rem;
+  background: linear-gradient(90deg, var(--color-violeta), var(--color-azul));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.navegacion { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
+
+.nav-boton {
+  padding: 10px 16px;
+  min-height: 44px;
+  background: transparent;
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.nav-boton:hover { background: var(--color-superficie-2); }
+.nav-boton.activo { background: var(--color-violeta); border-color: var(--color-violeta); }
+
+.campo-rol { display: flex; align-items: center; gap: 8px; }
+
+/* ===== Formularios ===== */
+label { display: block; margin: 12px 0 4px; color: var(--color-texto-suave); }
+
+input, select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  background: var(--color-superficie-2);
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+/* Foco siempre visible (accesibilidad) */
+:focus-visible {
+  outline: 3px solid var(--color-azul);
+  outline-offset: 2px;
+}
+
+/* ===== Buscador y filtros ===== */
+.campo label { margin-top: 0; }
+.zona-busqueda {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0 var(--espacio);
+  padding: var(--espacio);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  margin-bottom: var(--espacio);
+}
+
+/* ===== Botones ===== */
+.boton {
+  min-height: 44px;
+  padding: 10px 20px;
+  background: var(--color-superficie-2);
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.boton:hover { background: var(--color-borde); }
+.boton:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.boton-principal {
+  background: linear-gradient(90deg, var(--color-violeta), var(--color-azul));
+  border: none;
+  font-weight: bold;
+}
+.boton-principal:hover { filter: brightness(1.15); background: linear-gradient(90deg, var(--color-violeta), var(--color-azul)); }
+
+/* ===== Tarjetas de videojuegos ===== */
+.grilla-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--ancho-tarjeta), 1fr));
+  gap: var(--espacio);
+}
+
+.tarjeta {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.tarjeta:hover { transform: translateY(-4px); border-color: var(--color-violeta); }
+
+.tarjeta img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.tarjeta-cuerpo { padding: 12px; }
+.tarjeta-cuerpo h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.tarjeta-cuerpo p { margin: 0; color: var(--color-texto-suave); font-size: 0.9rem; }
+
+/* ===== Mensajes (error, éxito, aviso) ===== */
+#zona-mensajes { padding: 0 var(--espacio); }
+
+.mensaje {
+  margin: 8px 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 6px solid;
+  background: var(--color-superficie);
+}
+.mensaje-error { border-color: var(--color-error); }
+.mensaje-exito { border-color: var(--color-exito); }
+.mensaje-aviso { border-color: var(--color-aviso); }
+
+/* ===== Ventana del formulario ===== */
+dialog {
+  width: min(500px, 92vw);
+  padding: 24px;
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  border: 2px solid var(--color-violeta);
+  border-radius: var(--radio);
+}
+dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
+
+#vista-previa-caratula {
+  display: block;
+  width: 120px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.botones-formulario {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* ===== Celular ===== */
+@media (max-width: 600px) {
+  .encabezado { flex-direction: column; align-items: stretch; }
+  .navegacion { flex-direction: column; }
+  .grilla-tarjetas { grid-template-columns: 1fr; }
+  .boton { width: 100%; }
+}
